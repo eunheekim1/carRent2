@@ -12,7 +12,7 @@ public class Registered extends AbstractEvent {
     private Long userId;
     private String userName;
     private Date birthDate;
-    private Date phoneNo;
+    private String phoneNo;
     private Integer age;
 
     public Registered(MemberMgmt aggregate) {

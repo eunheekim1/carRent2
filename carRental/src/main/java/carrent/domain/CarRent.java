@@ -14,13 +14,11 @@ public class CarRent {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private Long rentId;
 
-    private String rentId;
+    private Long carId;
 
-    private String carId;
-
-    private String userId;
+    private Long userId;
 
     private Date rentStartDate;
 

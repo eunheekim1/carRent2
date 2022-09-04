@@ -17,9 +17,9 @@
         </v-card-title >
 
         <v-card-text>
-            <String label="RentId" v-model="value.rentId" :editMode="editMode"/>
-            <String label="CarId" v-model="value.carId" :editMode="editMode"/>
-            <String label="UserId" v-model="value.userId" :editMode="editMode"/>
+            <Number label="RentId" v-model="value.rentId" :editMode="editMode"/>
+            <Number label="CarId" v-model="value.carId" :editMode="editMode"/>
+            <Number label="UserId" v-model="value.userId" :editMode="editMode"/>
             <Date label="RentStartDate" v-model="value.rentStartDate" :editMode="editMode"/>
             <Date label="RentEndDate" v-model="value.rentEndDate" :editMode="editMode"/>
             <Date label="RegDate" v-model="value.regDate" :editMode="editMode"/>

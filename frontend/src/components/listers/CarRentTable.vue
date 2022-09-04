@@ -66,7 +66,6 @@
             values: [],
             headers: 
                 [
-                    { text: "id", value: "id" },
                     { text: "rentId", value: "rentId" },
                     { text: "carId", value: "carId" },
                     { text: "userId", value: "userId" },
@@ -91,9 +90,9 @@
             this.values = temp.data._embedded.carrents;
 
             this.newValue = {
-                'rentId': '',
-                'carId': '',
-                'userId': '',
+                'rentId': 0,
+                'carId': 0,
+                'userId': 0,
                 'rentStartDate': '2022-09-04',
                 'rentEndDate': '2022-09-04',
                 'regDate': '2022-09-04',

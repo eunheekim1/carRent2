@@ -16,11 +16,9 @@
                             
                             
                             
-                            
                         </v-list-item-title>
 
                         <v-list-item-subtitle style="font-size:25px; font-weight:700;">
-                            [ Id :  {{data.id }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             [ RentId :  {{data.rentId }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             [ CarId :  {{data.carId }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             [ UserId :  {{data.userId }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -109,9 +107,9 @@
             this.values = temp.data._embedded.carrents;
             
             this.newValue = {
-                'rentId': '',
-                'carId': '',
-                'userId': '',
+                'rentId': 0,
+                'carId': 0,
+                'userId': 0,
                 'rentStartDate': '2022-09-04',
                 'rentEndDate': '2022-09-04',
                 'regDate': '2022-09-04',

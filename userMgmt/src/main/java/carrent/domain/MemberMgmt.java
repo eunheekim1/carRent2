@@ -15,15 +15,13 @@ public class MemberMgmt {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-
-    private String userId;
+    private Long userId;
 
     private String userName;
 
     private Date birthDate;
 
-    private Date phoneNo;
+    private String phoneNo;
 
     private Integer age;
 

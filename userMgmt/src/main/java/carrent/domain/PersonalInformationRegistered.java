@@ -12,7 +12,7 @@ public class PersonalInformationRegistered extends AbstractEvent {
     private Long userId;
     private String userName;
     private Date birthDate;
-    private Date phoneNo;
+    private String phoneNo;
     private String licenseNo;
     private String address;
     private Integer age;
