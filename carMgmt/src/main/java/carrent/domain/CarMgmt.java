@@ -24,10 +24,12 @@ public class CarMgmt {
 
     private Date regEndDate;
 
-    private Boolean status;
+    private String status;
 
     @PostPersist
     public void onPostPersist() {
+
+        setStatus("CAR_REGISTERD");
         Registered registered = new Registered(this);
         registered.publishAfterCommit();
     }
@@ -40,27 +42,36 @@ public class CarMgmt {
     }
 
     public void registerCancel() {
+        setStatus("CAR_REGISTECANCELED");
         RegisterCancelled registerCancelled = new RegisterCancelled(this);
         registerCancelled.publishAfterCommit();
     }
 
-    public static void carStatusChange(Reserved reserved) {
-        /** Example 1:  new item 
-        CarMgmt carMgmt = new CarMgmt();
-        repository().save(carMgmt);
+    public static void carStatusChange(Reserved  reserved) {
+        ///** Example 1:  new item 
+       // CarMgmt carMgmt = new CarMgmt();
 
-        */
+        //carMgmt.setStatus(reserved.getStatus());
 
-        /** Example 2:  finding and process
+        System.out.println("reserved.getRentId()="+reserved.getRentId());
+        System.out.println("reserved.getStatus()="+reserved.getStatus());
+        System.out.println("reserved.getCarId()="+reserved.getCarId());
+
+        //repository().save(carMgmt);
+
+        //*/
+
+        /** Example 2:  finding and process */
         
-        repository().findById(reserved.get???()).ifPresent(carMgmt->{
-            
-            carMgmt // do something
+        repository().findById(reserved.getCarId()).ifPresent(carMgmt->{
+
+            //carMgmt.setCarId(reserved.getCarId());
+            carMgmt.setStatus(reserved.getStatus());
             repository().save(carMgmt);
 
 
          });
-        */
+         
 
     }
 
@@ -81,6 +92,13 @@ public class CarMgmt {
 
          });
         */
+        repository().findById(rented.getCarId()).ifPresent(carMgmt->{
+
+            //carMgmt.setCarId(reserved.getCarId());
+            carMgmt.setStatus(rented.getStatus());
+            repository().save(carMgmt);
+
+         });
 
     }
 
@@ -101,6 +119,13 @@ public class CarMgmt {
 
          });
         */
+        repository().findById(returned.getCarId()).ifPresent(carMgmt->{
+
+            //carMgmt.setCarId(reserved.getCarId());
+            carMgmt.setStatus(returned.getStatus());
+            repository().save(carMgmt);
+            
+         });
 
     }
 
@@ -113,7 +138,7 @@ public class CarMgmt {
 
         /** Example 2:  finding and process
         
-        repository().findById(reserveCancelled.get???()).ifPresent(carMgmt->{
+        repository().findById(reserveCancelled.get???()).ifPresent(carMgmt->{ 
             
             carMgmt // do something
             repository().save(carMgmt);
@@ -121,6 +146,13 @@ public class CarMgmt {
 
          });
         */
+        repository().findById(reserveCancelled.getCarId()).ifPresent(carMgmt->{
+
+            //carMgmt.setCarId(reserved.getCarId());
+            carMgmt.setStatus(reserveCancelled.getStatus());
+            repository().save(carMgmt);
+            
+         });
 
     }
 }

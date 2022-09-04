@@ -16,11 +16,11 @@ public class CarRent {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private String rentId;
+    private Long rentId;
 
-    private String carId;
+    private Long carId;
 
-    private String userId;
+    private Long userId;
 
     private Date rentStartDate;
 
@@ -36,14 +36,22 @@ public class CarRent {
         // it is NOT A GOOD PRACTICE. instead, Event-Policy mapping is recommended.
 
         carrent.external.Payment payment = new carrent.external.Payment();
-        // mappings goes here
+        // ###################
+        payment.setRentId(
+            getRentId()
+        );
+
+
         CarRentalApplication.applicationContext
             .getBean(carrent.external.PaymentService.class)
             .pay(payment);
 
+        // ###################
+        setStatus("RESERVED");
         Reserved reserved = new Reserved(this);
         reserved.publishAfterCommit();
     }
+
 
     public static CarRentRepository repository() {
         CarRentRepository carRentRepository = CarRentalApplication.applicationContext.getBean(
@@ -53,16 +61,22 @@ public class CarRent {
     }
 
     public void reserveCancel() {
+        // ###################
+        setStatus("RESERVECANCELED");
         ReserveCancelled reserveCancelled = new ReserveCancelled(this);
         reserveCancelled.publishAfterCommit();
     }
 
     public void returnCar() {
+        // ###################
+        setStatus("RETURNED");
         Returned returned = new Returned(this);
         returned.publishAfterCommit();
     }
 
     public void rent() {
+        // ###################
+        setStatus("RENTED");
         Rented rented = new Rented(this);
         rented.publishAfterCommit();
     }

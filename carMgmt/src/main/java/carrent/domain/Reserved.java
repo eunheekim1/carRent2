@@ -10,9 +10,9 @@ import lombok.*;
 public class Reserved extends AbstractEvent {
 
     private Long id;
-    private String rentId;
-    private String carId;
-    private String userId;
+    private Long rentId;
+    private Long carId;
+    private Long userId;
     private Date rentStartDate;
     private Date rentEndDate;
     private Date regDate;
