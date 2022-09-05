@@ -9,10 +9,6 @@ import lombok.*;
 @ToString
 public class Reserved extends AbstractEvent {
 
-<<<<<<< HEAD
-    private Long id;
-=======
->>>>>>> origin/template
     private Long rentId;
     private Long carId;
     private Long userId;

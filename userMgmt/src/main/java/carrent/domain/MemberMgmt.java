@@ -15,11 +15,7 @@ public class MemberMgmt {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-<<<<<<< HEAD
-    private Long id;
 
-=======
->>>>>>> origin/template
     private Long userId;
 
     private String userName;

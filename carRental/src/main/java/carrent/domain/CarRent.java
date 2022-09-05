@@ -16,15 +16,11 @@ public class CarRent {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long rentId;
 
-<<<<<<< HEAD
+
     private Long rentId;
 
     private Long carId;
 
-=======
-    private Long carId;
-
->>>>>>> origin/template
     private Long userId;
 
     private Date rentStartDate;
