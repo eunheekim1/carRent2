@@ -34,6 +34,14 @@ public class Payment {
     }
 
     public void pay() {
+
+        /*
+            try {
+        Thread.currentThread().sleep((long) (400 + Math.random() * 220));
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        */
         Paid paid = new Paid(this);
         paid.publishAfterCommit();
     }

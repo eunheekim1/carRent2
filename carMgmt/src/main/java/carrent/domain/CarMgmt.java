@@ -30,7 +30,6 @@ public class CarMgmt {
     public void onPostPersist() {
         setStatus("CAR_REGISTERD");
         Registered registered = new Registered(this);
-        registered.set
         registered.setStatus(true);
         registered.publishAfterCommit();
     }

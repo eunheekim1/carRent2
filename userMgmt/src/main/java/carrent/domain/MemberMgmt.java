@@ -61,18 +61,19 @@ public class MemberMgmt {
         mileageUpdated.publishAfterCommit();
         */
 
-        /** Example 2:  finding and process
+        /* Example 2:  finding and process */
         
-        repository().findById(reserved.get???()).ifPresent(memberMgmt->{
+        repository().findById(reserved.getuserId).ifPresent(memberMgmt->{
             
-            memberMgmt // do something
+            memberMgmt.setmileagePoint(); // do something
+            
             repository().save(memberMgmt);
 
             MileageUpdated mileageUpdated = new MileageUpdated(memberMgmt);
             mileageUpdated.publishAfterCommit();
 
          });
-        */
+        
 
     }
 }
