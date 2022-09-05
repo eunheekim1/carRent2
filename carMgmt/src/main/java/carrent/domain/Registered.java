@@ -10,7 +10,7 @@ import lombok.*;
 public class Registered extends AbstractEvent {
 
     private Long carId;
-    private Boolean status;
+    private String status;
     private Date regStartDate;
     private Date regEndDate;
 

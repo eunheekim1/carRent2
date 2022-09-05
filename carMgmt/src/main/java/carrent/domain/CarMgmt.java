@@ -30,7 +30,7 @@ public class CarMgmt {
     public void onPostPersist() {
         setStatus("CAR_REGISTERD");
         Registered registered = new Registered(this);
-        registered.setStatus(true);
+        registered.setStatus("available");
         registered.publishAfterCommit();
     }
 
@@ -44,7 +44,7 @@ public class CarMgmt {
     public void registerCancel() {
         setStatus("CAR_REGISTECANCELED");
         RegisterCancelled registerCancelled = new RegisterCancelled(this);
-        registerCancelled.setStatus(false);
+        registerCancelled.setStatus("unavailable");
         registerCancelled.publishAfterCommit();
     }
 
