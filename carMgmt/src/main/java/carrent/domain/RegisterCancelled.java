@@ -10,6 +10,8 @@ import lombok.*;
 public class RegisterCancelled extends AbstractEvent {
 
     private Long carId;
+    private Date regStartDate;
+    private Date regEndDate;
     private String status;
 
     public RegisterCancelled(CarMgmt aggregate) {
