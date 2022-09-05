@@ -68,10 +68,10 @@
             me.values = temp.data._embedded.memberMgmts;
             
             me.newValue = {
-                'userId': '',
+                'userId': 0,
                 'userName': '',
                 'birthDate': '2022-09-04',
-                'phoneNo': '2022-09-04',
+                'phoneNo': '',
                 'age': 0,
                 'mileagePoint': 0,
             }

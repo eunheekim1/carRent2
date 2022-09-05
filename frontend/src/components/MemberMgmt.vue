@@ -17,10 +17,10 @@
         </v-card-title >
 
         <v-card-text>
-            <String label="UserId" v-model="value.userId" :editMode="editMode"/>
+            <Number label="UserId" v-model="value.userId" :editMode="editMode"/>
             <String label="UserName" v-model="value.userName" :editMode="editMode"/>
             <Date label="BirthDate" v-model="value.birthDate" :editMode="editMode"/>
-            <Date label="PhoneNo" v-model="value.phoneNo" :editMode="editMode"/>
+            <String label="PhoneNo" v-model="value.phoneNo" :editMode="editMode"/>
             <Number label="Age" v-model="value.age" :editMode="editMode"/>
             <Number label="MileagePoint" v-model="value.mileagePoint" :editMode="editMode"/>
         </v-card-text>

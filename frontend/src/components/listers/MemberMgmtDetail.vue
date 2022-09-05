@@ -6,7 +6,7 @@
 
         <v-card-text>
             <div>
-                <String label="UserId" v-model="item.userId" :editMode="editMode" @change="change" />
+                <Number label="UserId" v-model="item.userId" :editMode="editMode" @change="change" />
             </div>
             <div>
                 <String label="UserName" v-model="item.userName" :editMode="editMode" @change="change" />
@@ -15,7 +15,7 @@
                 <Date label="BirthDate" v-model="item.birthDate" :editMode="editMode" @change="change" />
             </div>
             <div>
-                <Date label="PhoneNo" v-model="item.phoneNo" :editMode="editMode" @change="change" />
+                <String label="PhoneNo" v-model="item.phoneNo" :editMode="editMode" @change="change" />
             </div>
             <div>
                 <Number label="Age" v-model="item.age" :editMode="editMode" @change="change" />
