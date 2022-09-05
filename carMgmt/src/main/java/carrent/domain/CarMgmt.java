@@ -24,21 +24,20 @@ public class CarMgmt {
 
     private Date regEndDate;
 
-    private Boolean status;
+    private String status;
 
     @PostPersist
     public void onPostPersist() {
         Registered registered = new Registered(this);
         registered.publishAfterCommit();
-<<<<<<< HEAD
-=======
     }
 
-    @PostRemove
-    public void onPostRemove() {
+    @PostUpdate
+    public void onPostUpdate() {
+        System.out.println("in onPostUpdate FUNCTION !!!!!!!!!!!!!!!!!11111111111111111111111111");
         RegisterCancelled registerCancelled = new RegisterCancelled(this);
+        registerCancelled.setStatus("unavailable");
         registerCancelled.publishAfterCommit();
->>>>>>> origin/template
     }
 
     public static CarMgmtRepository repository() {
@@ -49,87 +48,37 @@ public class CarMgmt {
     }
 
     public void registerCancel() {
+        System.out.println("in registerCancel FUNCTION !!!!!!!!!!!!!!!!!22222222222222222222222222222");
         RegisterCancelled registerCancelled = new RegisterCancelled(this);
+        registerCancelled.setStatus("unavailable");
         registerCancelled.publishAfterCommit();
     }
 
-    public static void carStatusChange(Reserved reserved) {
-        /** Example 1:  new item 
-        CarMgmt carMgmt = new CarMgmt();
-        repository().save(carMgmt);
-
-        */
-
-        /** Example 2:  finding and process
-        
-        repository().findById(reserved.get???()).ifPresent(carMgmt->{
-            
-            carMgmt // do something
+    public static void carStatusChange(Reserved reserved) {     
+        repository().findById(reserved.getRentId()).ifPresent(carMgmt->{
+            carMgmt.setStatus(reserved.getStatus());
             repository().save(carMgmt);
-
-
          });
-        */
-
     }
 
     public static void carStatusChange(Rented rented) {
-        /** Example 1:  new item 
-        CarMgmt carMgmt = new CarMgmt();
-        repository().save(carMgmt);
-
-        */
-
-        /** Example 2:  finding and process
-        
-        repository().findById(rented.get???()).ifPresent(carMgmt->{
-            
-            carMgmt // do something
+        repository().findById(rented.getRentId()).ifPresent(carMgmt->{
+            carMgmt.setStatus(rented.getStatus());
             repository().save(carMgmt);
-
-
          });
-        */
-
     }
 
     public static void carStatusChange(Returned returned) {
-        /** Example 1:  new item 
-        CarMgmt carMgmt = new CarMgmt();
-        repository().save(carMgmt);
-
-        */
-
-        /** Example 2:  finding and process
-        
-        repository().findById(returned.get???()).ifPresent(carMgmt->{
-            
-            carMgmt // do something
+        repository().findById(returned.getRentId()).ifPresent(carMgmt->{
+            carMgmt.setStatus(returned.getStatus());
             repository().save(carMgmt);
-
-
          });
-        */
-
     }
 
     public static void carStatusChange(ReserveCancelled reserveCancelled) {
-        /** Example 1:  new item 
-        CarMgmt carMgmt = new CarMgmt();
-        repository().save(carMgmt);
-
-        */
-
-        /** Example 2:  finding and process
-        
-        repository().findById(reserveCancelled.get???()).ifPresent(carMgmt->{
-            
-            carMgmt // do something
+        repository().findById(reserveCancelled.getRentId()).ifPresent(carMgmt->{
+            carMgmt.setStatus(reserveCancelled.getStatus());
             repository().save(carMgmt);
-
-
          });
-        */
-
     }
 }

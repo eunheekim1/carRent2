@@ -11,6 +11,8 @@ public class Rented extends AbstractEvent {
 
     private Long rentId;
     private String status;
+    private Date rentStartDate;
+    private Date rentEndDate;
     // keep
 
 }

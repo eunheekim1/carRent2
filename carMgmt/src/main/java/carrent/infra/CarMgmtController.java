@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-// @RequestMapping(value="/carMgmts")
+//@RequestMapping(value="/carMgmts")
 @Transactional
 public class CarMgmtController {
 
@@ -19,7 +19,7 @@ public class CarMgmtController {
     CarMgmtRepository carMgmtRepository;
 
     @RequestMapping(
-        value = "carMgmts/{id}/registercancel",
+        value = "/carMgmts/{id}/registercancel",
         method = RequestMethod.PUT,
         produces = "application/json;charset=UTF-8"
     )

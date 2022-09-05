@@ -28,27 +28,27 @@ public class CarRent {
 
     private String status;
 
+    private Double rentCost;
+
     @PostPersist
     public void onPostPersist() {
         //Following code causes dependency to external APIs
         // it is NOT A GOOD PRACTICE. instead, Event-Policy mapping is recommended.
-
+        
         carrent.external.Payment payment = new carrent.external.Payment();
-        // ###################
-        payment.setRentId(
-            getRentId()
-        );
-
-
+        payment.setRentId(getRentId());
+        payment.setPayType("card");
+        payment.setRentCost(getRentCost());
+        
         CarRentalApplication.applicationContext
             .getBean(carrent.external.PaymentService.class)
             .pay(payment);
 
-        // ###################
+        setStatus("RESERVED");
         
         Reserved reserved = new Reserved(this);
-        //reserved.setStatus("RESERVED");
         reserved.publishAfterCommit();
+
     }
 
 
@@ -60,26 +60,21 @@ public class CarRent {
     }
 
     public void reserveCancel() {
-        // ###################
         
+        setStatus("RESERVECANCELED");
         ReserveCancelled reserveCancelled = new ReserveCancelled(this);
-        //reserveCancelled.setStatus("RESERVECANCELED");
         reserveCancelled.publishAfterCommit();
     }
 
     public void returnCar() {
-        // ###################
-        
+        setStatus("RETURNED");
         Returned returned = new Returned(this);
-        //returned.setStatus("RETURNED");
         returned.publishAfterCommit();
     }
 
     public void rent() {
-        // ###################
-        
+        setStatus("RENTED");
         Rented rented = new Rented(this);
-        //rented.setStatus("RENTED");
         rented.publishAfterCommit();
     }
 }

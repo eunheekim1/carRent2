@@ -40,6 +40,7 @@ public class MemberMgmt {
     public static MemberMgmtRepository repository() {
         MemberMgmtRepository memberMgmtRepository = UserMgmtApplication.applicationContext.getBean(
             MemberMgmtRepository.class
+
         );
         return memberMgmtRepository;
     }
@@ -53,11 +54,11 @@ public class MemberMgmt {
         mileageUpdated.publishAfterCommit();
         */
 
-        /* Example 2:  finding and process 
+        /**  Example 2:  finding and process 
         
-        repository().findById(reserved.getuserId).ifPresent(memberMgmt->{
+        repository().findById(Long.valueOf(reserved.getmileagePoint())).ifPresent(memberMgmt->{
             
-            memberMgmt.setmileagePoint(); // do something
+            memberMgmt.setmileagePoint(reserved.getmileagePoint() + 500); // do something
             
             repository().save(memberMgmt);
 
@@ -65,6 +66,8 @@ public class MemberMgmt {
             mileageUpdated.publishAfterCommit();
 
          });
+
         */
+        
     }
 }
