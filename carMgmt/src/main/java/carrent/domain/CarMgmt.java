@@ -45,7 +45,7 @@ public class CarMgmt {
         return carMgmtRepository;
     }
 
-<<<<<<< HEAD
+
     public void registerCancel() {
         setStatus("CAR_REGISTECANCELED");
         RegisterCancelled registerCancelled = new RegisterCancelled(this);
@@ -54,7 +54,7 @@ public class CarMgmt {
     }
 =======
     public void registerCancel() {}
->>>>>>> origin/template
+
 
     public static void carStatusChange(Reserved reserved) {
         /** Example 1:  new item 
