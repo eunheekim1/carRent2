@@ -71,9 +71,9 @@
                 'carId': 0,
                 'model': '',
                 'type': '',
-                'regStartDate': '2022-09-04',
-                'regEndDate': '2022-09-04',
-                'status': false,
+                'regStartDate': '2022-09-05',
+                'regEndDate': '2022-09-05',
+                'status': '',
             }
         },
         methods:{

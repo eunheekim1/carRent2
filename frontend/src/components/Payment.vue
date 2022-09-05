@@ -168,7 +168,7 @@
 
                 } catch(e) {
                     this.snackbar.status = true
-                    if(e.response && e.response.data.message) {
+                    if(e.response.data.message) {
                         this.snackbar.text = e.response.data.message
                     } else {
                         this.snackbar.text = e
@@ -190,7 +190,7 @@
 
                 } catch(e) {
                     this.snackbar.status = true
-                    if(e.response && e.response.data.message) {
+                    if(e.response.data.message) {
                         this.snackbar.text = e.response.data.message
                     } else {
                         this.snackbar.text = e
@@ -203,7 +203,7 @@
             async pay() {
                 try {
                     if(!this.offline) {
-                        var temp = await axios.put(axios.fixUrl(this.value._links['pay'].href))
+                        var temp = await axios.put(axios.fixUrl(this.value._links.pay.href))
                         for(var k in temp.data) {
                             this.value[k]=temp.data[k];
                         }
@@ -212,7 +212,7 @@
                     this.editMode = false;
                 } catch(e) {
                     this.snackbar.status = true
-                    if(e.response && e.response.data.message) {
+                    if(e.response.data.message) {
                         this.snackbar.text = e.response.data.message
                     } else {
                         this.snackbar.text = e
@@ -222,7 +222,7 @@
             async () {
                 try {
                     if(!this.offline) {
-                        var temp = await axios.put(axios.fixUrl(this.value._links[''].href))
+                        var temp = await axios.put(axios.fixUrl(this.value._links..href))
                         for(var k in temp.data) {
                             this.value[k]=temp.data[k];
                         }
@@ -231,7 +231,7 @@
                     this.editMode = false;
                 } catch(e) {
                     this.snackbar.status = true
-                    if(e.response && e.response.data.message) {
+                    if(e.response.data.message) {
                         this.snackbar.text = e.response.data.message
                     } else {
                         this.snackbar.text = e

@@ -70,7 +70,7 @@
             me.newValue = {
                 'userId': 0,
                 'userName': '',
-                'birthDate': '2022-09-04',
+                'birthDate': '2022-09-05',
                 'phoneNo': '',
                 'age': 0,
                 'mileagePoint': 0,

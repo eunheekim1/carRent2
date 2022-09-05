@@ -107,7 +107,7 @@
                 'rentId': 0,
                 'rentCost': 0,
                 'payType': '',
-                'payDate': '2022-09-04',
+                'payDate': '2022-09-05',
             }
         },
         methods: {
