@@ -10,6 +10,7 @@ import lombok.*;
 public class ReserveCancelled extends AbstractEvent {
 
     private Long rentId;
+    private Long carId
     private String status;
 
     public ReserveCancelled(CarRent aggregate) {
