@@ -14,6 +14,7 @@ public class Registered extends AbstractEvent {
     private Date birthDate;
     private String phoneNo;
     private Integer age;
+    private Double mileagePoint;
 
     public Registered(MemberMgmt aggregate) {
         super(aggregate);

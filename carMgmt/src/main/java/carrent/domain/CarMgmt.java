@@ -60,11 +60,17 @@ public class CarMgmt {
 
         */
 
-        /** Example 2:  finding and process */
+        /** Example 2:  finding and process
         
-        repository().findById(reserved.getCarId()).ifPresent(carMgmt->{
+        repository().findById(reserved.get???()).ifPresent(carMgmt->{
+            
+            carMgmt // do something
             repository().save(carMgmt);
+
+
          });
+        */
+
     }
 
     public static void carStatusChange(Rented rented) {
