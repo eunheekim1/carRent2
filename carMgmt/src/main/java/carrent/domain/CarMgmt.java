@@ -1,6 +1,7 @@
 package carrent.domain;
 
 import carrent.CarMgmtApplication;
+import carrent.domain.RegisterCancelled;
 import carrent.domain.Registered;
 import java.util.Date;
 import java.util.List;
@@ -32,6 +33,9 @@ public class CarMgmt {
         Registered registered = new Registered(this);
         registered.setStatus("available");
         registered.publishAfterCommit();
+
+        RegisterCancelled registerCancelled = new RegisterCancelled(this);
+        registerCancelled.publishAfterCommit();
     }
 
     public static CarMgmtRepository repository() {
@@ -41,12 +45,16 @@ public class CarMgmt {
         return carMgmtRepository;
     }
 
+<<<<<<< HEAD
     public void registerCancel() {
         setStatus("CAR_REGISTECANCELED");
         RegisterCancelled registerCancelled = new RegisterCancelled(this);
         registerCancelled.setStatus("unavailable");
         registerCancelled.publishAfterCommit();
     }
+=======
+    public void registerCancel() {}
+>>>>>>> origin/template
 
     public static void carStatusChange(Reserved reserved) {
         /** Example 1:  new item 

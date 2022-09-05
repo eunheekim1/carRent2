@@ -21,7 +21,7 @@
                 <Date label="RegEndDate" v-model="item.regEndDate" :editMode="editMode" @change="change" />
             </div>
             <div>
-                <Boolean label="Status" v-model="item.status" :editMode="editMode" @change="change" />
+                <String label="Status" v-model="item.status" :editMode="editMode" @change="change" />
             </div>
         </v-card-text>
 

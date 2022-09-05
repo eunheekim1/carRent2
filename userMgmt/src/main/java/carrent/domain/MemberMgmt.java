@@ -44,13 +44,6 @@ public class MemberMgmt {
         return memberMgmtRepository;
     }
 
-    public void registration() {
-        PersonalInformationRegistered personalInformationRegistered = new PersonalInformationRegistered(
-            this
-        );
-        personalInformationRegistered.publishAfterCommit();
-    }
-
     public static void mileageUpdate(Reserved reserved) {
         /** Example 1:  new item 
         MemberMgmt memberMgmt = new MemberMgmt();
