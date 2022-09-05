@@ -60,7 +60,7 @@ public class MemberMgmt {
         mileageUpdated.publishAfterCommit();
         */
 
-        /* Example 2:  finding and process */
+        /* Example 2:  finding and process 
         
         repository().findById(reserved.getuserId).ifPresent(memberMgmt->{
             
@@ -72,7 +72,6 @@ public class MemberMgmt {
             mileageUpdated.publishAfterCommit();
 
          });
-        
-
+        */
     }
 }
