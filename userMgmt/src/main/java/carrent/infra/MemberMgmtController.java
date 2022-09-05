@@ -17,28 +17,5 @@ public class MemberMgmtController {
 
     @Autowired
     MemberMgmtRepository memberMgmtRepository;
-
-    @RequestMapping(
-        value = "memberMgmts/{id}/registration",
-        method = RequestMethod.PUT,
-        produces = "application/json;charset=UTF-8"
-    )
-    public MemberMgmt registration(
-        @PathVariable(value = "id") Long id,
-        HttpServletRequest request,
-        HttpServletResponse response
-    ) throws Exception {
-        System.out.println("##### /memberMgmt/registration  called #####");
-        Optional<MemberMgmt> optionalMemberMgmt = memberMgmtRepository.findById(
-            id
-        );
-
-        optionalMemberMgmt.orElseThrow(() -> new Exception("No Entity Found"));
-        MemberMgmt memberMgmt = optionalMemberMgmt.get();
-        memberMgmt.registration();
-
-        memberMgmtRepository.save(memberMgmt);
-        return memberMgmt;
-    }
     // keep
 }

@@ -42,6 +42,7 @@ public class Payment {
             e.printStackTrace();
         }
         */
+
         Paid paid = new Paid(this);
         paid.publishAfterCommit();
     }

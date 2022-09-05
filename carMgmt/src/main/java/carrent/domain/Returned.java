@@ -9,6 +9,7 @@ import lombok.*;
 @ToString
 public class Returned extends AbstractEvent {
     private Long rentId;
+    private Long carId;
     private String status;
     // keep
 

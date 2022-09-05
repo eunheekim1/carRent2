@@ -56,7 +56,7 @@ public class MemberMgmt {
 
         /**  Example 2:  finding and process 
         
-        repository().findById(Long.valueOf(reserved.getmileagePoint())).ifPresent(memberMgmt->{
+        repository().findById(reserved.userId).ifPresent(memberMgmt->{
             
             memberMgmt.setmileagePoint(reserved.getmileagePoint() + 500); // do something
             
@@ -70,4 +70,5 @@ public class MemberMgmt {
         */
         
     }
+
 }
