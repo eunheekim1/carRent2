@@ -31,7 +31,10 @@ public class CarMgmt {
     public void onPostPersist() {
         Registered registered = new Registered(this);
         registered.publishAfterCommit();
+    }
 
+    @PostRemove
+    public void onPostRemove() {
         RegisterCancelled registerCancelled = new RegisterCancelled(this);
         registerCancelled.publishAfterCommit();
     }
@@ -52,17 +55,11 @@ public class CarMgmt {
 
         */
 
-        /** Example 2:  finding and process
+        /** Example 2:  finding and process */
         
-        repository().findById(reserved.get???()).ifPresent(carMgmt->{
-            
-            carMgmt // do something
+        repository().findById(reserved.getCarId()).ifPresent(carMgmt->{
             repository().save(carMgmt);
-
-
          });
-        */
-
     }
 
     public static void carStatusChange(Rented rented) {
