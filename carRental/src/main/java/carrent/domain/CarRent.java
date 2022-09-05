@@ -16,9 +16,6 @@ public class CarRent {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long rentId;
 
-
-    private Long rentId;
-
     private Long carId;
 
     private Long userId;
@@ -50,7 +47,7 @@ public class CarRent {
         // ###################
         
         Reserved reserved = new Reserved(this);
-        reserved.setStatus("RESERVED");
+        //reserved.setStatus("RESERVED");
         reserved.publishAfterCommit();
     }
 
@@ -66,7 +63,7 @@ public class CarRent {
         // ###################
         
         ReserveCancelled reserveCancelled = new ReserveCancelled(this);
-        reserveCancelled.setStatus("RESERVECANCELED");
+        //reserveCancelled.setStatus("RESERVECANCELED");
         reserveCancelled.publishAfterCommit();
     }
 
@@ -74,7 +71,7 @@ public class CarRent {
         // ###################
         
         Returned returned = new Returned(this);
-        returned.setStatus("RETURNED");
+        //returned.setStatus("RETURNED");
         returned.publishAfterCommit();
     }
 
@@ -82,7 +79,7 @@ public class CarRent {
         // ###################
         
         Rented rented = new Rented(this);
-        rented.setStatus("RENTED");
+        //rented.setStatus("RENTED");
         rented.publishAfterCommit();
     }
 }
