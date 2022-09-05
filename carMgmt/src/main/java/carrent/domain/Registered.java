@@ -11,6 +11,10 @@ public class Registered extends AbstractEvent {
 
     private Long carId;
     private Boolean status;
+    private String model;
+    private String type;
+    private Date regStartDate;
+    private Date regEndDate;
 
     public Registered(CarMgmt aggregate) {
         super(aggregate);

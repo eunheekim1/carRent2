@@ -6,7 +6,7 @@ import java.util.Date;
 import java.util.List;
 import javax.persistence.*;
 import lombok.Data;
-//
+
 @Entity
 @Table(name = "CarMgmt_table")
 @Data
@@ -28,9 +28,10 @@ public class CarMgmt {
 
     @PostPersist
     public void onPostPersist() {
-
         setStatus("CAR_REGISTERD");
         Registered registered = new Registered(this);
+        registered.set
+        registered.setStatus(true);
         registered.publishAfterCommit();
     }
 
@@ -44,115 +45,116 @@ public class CarMgmt {
     public void registerCancel() {
         setStatus("CAR_REGISTECANCELED");
         RegisterCancelled registerCancelled = new RegisterCancelled(this);
+        registerCancelled.setStatus(false);
         registerCancelled.publishAfterCommit();
     }
 
-    public static void carStatusChange(Reserved  reserved) {
-        ///** Example 1:  new item 
-       // CarMgmt carMgmt = new CarMgmt();
+    public static void carStatusChange(Reserved reserved) {
+        /** Example 1:  new item 
+        CarMgmt carMgmt = new CarMgmt();
 
-        //carMgmt.setStatus(reserved.getStatus());
+        carMgmt.setStatus(reserved.getStatus());
 
         System.out.println("reserved.getRentId()="+reserved.getRentId());
         System.out.println("reserved.getStatus()="+reserved.getStatus());
         System.out.println("reserved.getCarId()="+reserved.getCarId());
 
-        //repository().save(carMgmt);
+        repository().save(carMgmt);
 
-        //*/
+        */
 
-        /** Example 2:  finding and process */
+        //** Example 2:  finding and process 
         
-        repository().findById(reserved.getCarId()).ifPresent(carMgmt->{
-
-            //carMgmt.setCarId(reserved.getCarId());
+        repository().findByCarId(reserved.getCarId()).ifPresent(carMgmt->{
+            carMgmt.setCarId(reserved.getCarId());
             carMgmt.setStatus(reserved.getStatus());
             repository().save(carMgmt);
 
-
          });
-         
-
     }
 
     public static void carStatusChange(Rented rented) {
         /** Example 1:  new item 
         CarMgmt carMgmt = new CarMgmt();
+
+        carMgmt.setCarId(rented.getRentId());
+        carMgmt.setStatus("unavailable");
+
         repository().save(carMgmt);
 
         */
 
         /** Example 2:  finding and process
         
-        repository().findById(rented.get???()).ifPresent(carMgmt->{
+        repository().findById(rented.getCarId()).ifPresent(carMgmt->{
             
-            carMgmt // do something
+            //carMgmt // do something
             repository().save(carMgmt);
 
 
          });
         */
-        repository().findById(rented.getCarId()).ifPresent(carMgmt->{
 
-            //carMgmt.setCarId(reserved.getCarId());
+        repository().findById(rented.getRentId()).ifPresent(carMgmt->{
             carMgmt.setStatus(rented.getStatus());
             repository().save(carMgmt);
-
          });
-
     }
 
     public static void carStatusChange(Returned returned) {
         /** Example 1:  new item 
         CarMgmt carMgmt = new CarMgmt();
+
+        carMgmt.setCarId(returned.getRentId());
+        carMgmt.setStatus("available");
+
         repository().save(carMgmt);
 
         */
 
-        /** Example 2:  finding and process
+        /**  Example 2:  finding and process
         
-        repository().findById(returned.get???()).ifPresent(carMgmt->{
+        repository().findById(returned.getCarId()).ifPresent(carMgmt->{
             
-            carMgmt // do something
+            //carMgmt // do something
             repository().save(carMgmt);
 
 
          });
         */
-        repository().findById(returned.getCarId()).ifPresent(carMgmt->{
 
-            //carMgmt.setCarId(reserved.getCarId());
+        repository().findById(returned.getRentId()).ifPresent(carMgmt->{
             carMgmt.setStatus(returned.getStatus());
             repository().save(carMgmt);
-            
          });
-
     }
 
     public static void carStatusChange(ReserveCancelled reserveCancelled) {
         /** Example 1:  new item 
         CarMgmt carMgmt = new CarMgmt();
+
+        carMgmt.setCarId(reserveCancelled.getRentId());
+        carMgmt.setStatus("available");
+
         repository().save(carMgmt);
 
         */
 
-        /** Example 2:  finding and process
+        /**  Example 2:  finding and process
         
-        repository().findById(reserveCancelled.get???()).ifPresent(carMgmt->{ 
+        repository().findById(reserveCancelled.getCarId()).ifPresent(carMgmt->{ 
             
-            carMgmt // do something
+            //carMgmt // do something
             repository().save(carMgmt);
 
 
          });
         */
-        repository().findById(reserveCancelled.getCarId()).ifPresent(carMgmt->{
 
-            //carMgmt.setCarId(reserved.getCarId());
+        repository().findById(reserveCancelled.getRentId()).ifPresent(carMgmt->{
             carMgmt.setStatus(reserveCancelled.getStatus());
             repository().save(carMgmt);
             
          });
-
     }
 }

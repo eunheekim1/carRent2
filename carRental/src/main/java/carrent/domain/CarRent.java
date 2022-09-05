@@ -47,8 +47,9 @@ public class CarRent {
             .pay(payment);
 
         // ###################
-        setStatus("RESERVED");
+        
         Reserved reserved = new Reserved(this);
+        reserved.setStatus("RESERVED");
         reserved.publishAfterCommit();
     }
 
@@ -62,22 +63,25 @@ public class CarRent {
 
     public void reserveCancel() {
         // ###################
-        setStatus("RESERVECANCELED");
+        
         ReserveCancelled reserveCancelled = new ReserveCancelled(this);
+        reserveCancelled.setStatus("RESERVECANCELED");
         reserveCancelled.publishAfterCommit();
     }
 
     public void returnCar() {
         // ###################
-        setStatus("RETURNED");
+        
         Returned returned = new Returned(this);
+        returned.setStatus("RETURNED");
         returned.publishAfterCommit();
     }
 
     public void rent() {
         // ###################
-        setStatus("RENTED");
+        
         Rented rented = new Rented(this);
+        rented.setStatus("RENTED");
         rented.publishAfterCommit();
     }
 }
