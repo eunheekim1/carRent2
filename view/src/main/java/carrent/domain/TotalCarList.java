@@ -13,4 +13,7 @@ public class TotalCarList {
     @Id
     //@GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
+
+    private String carMgmtStatus;
+    private String carRentStatus;
 }
