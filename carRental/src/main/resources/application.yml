@@ -34,6 +34,16 @@ spring:
           destination: carrent
           contentType: application/json
 
+#  feign:
+#    hystrix:
+#      enabled: true
+
+#  hystrix:
+#    command:
+#      # 전역설정
+#      default:
+#        execution.isolation.thread.timeoutInMilliseconds: 610
+
 logging:
   level:
     org.hibernate.type: trace

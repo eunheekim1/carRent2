@@ -25,6 +25,7 @@ spring:
                   serde: org.apache.kafka.common.serialization.Serdes$StringSerde
                 value:
                   serde: org.apache.kafka.common.serialization.Serdes$StringSerde
+      
       bindings:
         event-in:
           group: payment
@@ -33,7 +34,6 @@ spring:
         event-out:
           destination: carrent
           contentType: application/json
-
 logging:
   level:
     org.hibernate.type: trace
