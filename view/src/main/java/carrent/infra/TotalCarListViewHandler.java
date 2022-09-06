@@ -25,6 +25,7 @@ public class TotalCarListViewHandler {
             TotalCarList totalCarList = new TotalCarList();
             // view 객체에 이벤트의 Value 를 set 함
             totalCarList.setId(reserved.getRentId());
+            totalCarList.setCarRentStatus("예약됨");
             // view 레파지 토리에 save
             totalCarListRepository.save(totalCarList);
         } catch (Exception e) {
@@ -33,28 +34,24 @@ public class TotalCarListViewHandler {
     }
 
     @StreamListener(KafkaProcessor.INPUT)
-    public void whenRegistered_then_UPDATE_1(@Payload Registered registered) {
+    public void whenRegistered_then_CREATE_2(@Payload Registered registered) {
         try {
             if (!registered.validate()) return;
-            // view 객체 조회
-            Optional<TotalCarList> totalCarListOptional = totalCarListRepository.findById(
-                registered.getCarId()
-            );
 
-            if (totalCarListOptional.isPresent()) {
-                TotalCarList totalCarList = totalCarListOptional.get();
-                // view 객체에 이벤트의 eventDirectValue 를 set 함
-                totalCarList.setCarMgmtStatus("신규등록됨");
-                // view 레파지 토리에 save
-                totalCarListRepository.save(totalCarList);
-            }
+            // view 객체 생성
+            TotalCarList totalCarList = new TotalCarList();
+            // view 객체에 이벤트의 Value 를 set 함
+            totalCarList.setCarMgmtStatus("신규등록");
+            totalCarList.setId(registered.getCarId());
+            // view 레파지 토리에 save
+            totalCarListRepository.save(totalCarList);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     @StreamListener(KafkaProcessor.INPUT)
-    public void whenReserveCancelled_then_UPDATE_2(
+    public void whenReserveCancelled_then_UPDATE_1(
         @Payload ReserveCancelled reserveCancelled
     ) {
         try {
